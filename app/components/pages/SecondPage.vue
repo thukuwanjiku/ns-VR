@@ -1,5 +1,15 @@
 <template>
-  <GridLayout colums="*" rows="*">
-    <Label class="message" text="Second" col="0" row="0"/>
-  </GridLayout>
+  <Page>
+    <ActionBar>
+      <GridLayout width="100%" columns="auto, *">
+          <Label text="MENU" @tap="$refs.drawer.nativeView.showDrawer()" col="0"/>
+        <Label class="title" text="Welcome to NativeScript-Vue!"  col="1"/>
+      </GridLayout>
+    </ActionBar>
+
+    <StackLayout>
+      <Label text="Some Text at second page"></Label>
+      <router-view></router-view>
+    </StackLayout>
+  </Page>
 </template>

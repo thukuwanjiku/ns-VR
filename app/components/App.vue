@@ -1,13 +1,10 @@
 <template>
     <Page>
         <ActionBar>
-            <GridLayout width="100%" columns="auto, *">
-                <Label text="MENU" @tap="$refs.drawer.nativeView.showDrawer()" col="0"/>
-                <Label class="title" text="Welcome to NativeScript-Vue!"  col="1"/>
-            </GridLayout>
+            <Label class="title" text="Welcome to NativeScript-Vue!"  col="1"/>
         </ActionBar>
 
-        <RadSideDrawer ref="drawer">
+        <!--<RadSideDrawer ref="drawer">
             <StackLayout ~drawerContent backgroundColor="#ffffff">
                 <Label class="drawer-header" text="Drawer"/>
 
@@ -16,10 +13,15 @@
                 <Label class="drawer-item" text="Item 3"/>
             </StackLayout>
             <StackLayout ~mainContent>
-              <Label text="Some Text"></Label>
-              <router-view></router-view>
+                <Label text="Some Text"></Label>
+                <router-view></router-view>
             </StackLayout>
-        </RadSideDrawer>
+        </RadSideDrawer>-->
+
+        <StackLayout>
+            <Label text="Hope you see this" class="message"></Label>
+        </StackLayout>
+
     </Page>
 </template>
 

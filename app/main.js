@@ -13,7 +13,7 @@ Vue.config.silent = (TNS_ENV === 'production')
 
 Vue.registerElement('RadSideDrawer', () => require('nativescript-ui-sidedrawer').RadSideDrawer)
 
-router.replace('/sda')
+router.replace('/home')
 new Vue({
   router,
   render: h => h(SideDrawerApp)

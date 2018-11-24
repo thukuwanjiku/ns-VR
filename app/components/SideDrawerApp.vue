@@ -1,11 +1,11 @@
 <template>
-    <RadSideDrawer ref="drawer">
+    <RadSideDrawer ref="drawer" :gesturesEnabled="isGesturesEnabled">
         <StackLayout ~drawerContent backgroundColor="#ffffff">
             <Label class="drawer-header" text="Drawer"/>
 
-            <Button @tap="$router.replace('/first')" class="drawer-item" text="Item 1"/>
-            <Button @tap="$router.replace('/second')" class="drawer-item" text="Item 2"/>
-            <Button @tap="$router.replace('/sda')" class="drawer-item" text="Item 3"/>
+            <Button @tap="handleNavigation('home')" class="drawer-item" text="Home"/>
+            <Button @tap="handleNavigation('sda')" class="drawer-item" text="Page 3"/>
+            <Button @tap="handleNavigation('another')" class="drawer-item" text="Item another"/>
         </StackLayout>
         <Frame ~mainContent>
             <router-view></router-view>
@@ -15,11 +15,31 @@
 
 <script>
   export default {
-    data() {
-      return {
-        msg: 'Hello World!!'
+      data(){
+          return{
+              isGesturesEnabled: true,
+              hiddenDrawerRoutes: ['another'],
+          }
+      },
+      watch: {
+          $route (to, from){
+              /*if(this.hiddenDrawerRoutes.indexOf(to.name)){
+                  this.isGesturesEnabled = false;
+              }else{
+                  this.isGesturesEnabled = true;
+              }*/
+
+              
+              /*console.log(to.name);
+              console.log(from.name);*/
+          }
+      },
+      methods:{
+          handleNavigation(routeName){
+              this.$refs.drawer.nativeView.closeDrawer()
+              this.$router.replace({name: routeName})
+          }
       }
-    }
   }
 </script>
 
